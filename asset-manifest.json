@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/sharath-mind/hdgzxbuai-ljidokasxx/static/css/main.a5b49f58.css",
-    "main.js": "/sharath-mind/hdgzxbuai-ljidokasxx/static/js/main.aed6a75b.js",
-    "index.html": "/sharath-mind/hdgzxbuai-ljidokasxx/index.html",
-    "main.a5b49f58.css.map": "/sharath-mind/hdgzxbuai-ljidokasxx/static/css/main.a5b49f58.css.map",
-    "main.aed6a75b.js.map": "/sharath-mind/hdgzxbuai-ljidokasxx/static/js/main.aed6a75b.js.map"
+    "main.css": "/hdgzxbuai-ljidokasxx/static/css/main.a5b49f58.css",
+    "main.js": "/hdgzxbuai-ljidokasxx/static/js/main.aed6a75b.js",
+    "index.html": "/hdgzxbuai-ljidokasxx/index.html",
+    "main.a5b49f58.css.map": "/hdgzxbuai-ljidokasxx/static/css/main.a5b49f58.css.map",
+    "main.aed6a75b.js.map": "/hdgzxbuai-ljidokasxx/static/js/main.aed6a75b.js.map"
   },
   "entrypoints": [
     "static/css/main.a5b49f58.css",
