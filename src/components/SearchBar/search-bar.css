@@ -1,0 +1,35 @@
+.search-bar {
+  text-align: center;
+  margin: 1rem 5rem;
+}
+
+.text-input {
+  padding: 0.4rem 1rem;
+  border-radius: 3rem;
+  border: 1px solid #105a95;
+  display: flex;
+  align-self: center;
+}
+
+.search-bar input {
+  font-size: 1.3rem;
+  width: 100%;
+  border: none;
+  padding-right: 1rem;
+}
+
+.search-btn {
+  background: #da1256;
+  fill: white;
+  padding: 5px;
+  width: 2rem;
+  border-radius: 50%;
+  height: 2rem;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 512px) {
+  .search-bar {
+    margin: 1rem;
+  }
+}

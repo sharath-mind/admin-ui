@@ -1,0 +1,47 @@
+.pagination-container,
+.btns-container {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.btns {
+  border: 2px solid #105a95;
+  background-color: #03a9f4;
+  border-radius: 50%;
+  width: 2em;
+  height: 2em;
+  text-align: center;
+  cursor: pointer;
+  padding-top: 3px;
+}
+
+.arrow-btns {
+  cursor: pointer;
+  border: 2px solid #105a95;
+  background-color: #03a9f4;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  padding-top: 4px;
+  text-align: center;
+  fill: #105a95;
+}
+
+.arrow-btns[disabled] {
+  background-color: #808080;
+  fill: #9e9e9e;
+  border: 2px solid #9e9e9e;
+  cursor: default;
+}
+
+.btns.selected {
+  background-color: transparent;
+}
+@media only screen and (max-width: 512px) {
+  .pagination-container,
+  .btns-container {
+    gap: 0.5rem;
+  }
+}

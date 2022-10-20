@@ -1,0 +1,32 @@
+.table-container {
+  margin: 0px 5rem;
+}
+
+.header-container {
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 0.5fr 0.5fr;
+    background: #9e9e9e;
+    border-radius: 5px;
+    box-shadow: 1px 1px #9e9e9e91;
+    padding: 0.5rem;
+    margin-bottom: 5px;
+    gap: 1rem;
+}
+
+@media only screen and (max-width: 512px) {
+  .table-container {
+    margin: 0px;
+  }
+  .header-container {
+    margin: 1rem;
+    display: block;
+  }
+  .header-container > div:first-child {
+    display: flex;
+    gap: 1rem;
+  }
+  .header-container > div:not(:first-child) {
+    display: none;
+  }
+}
