@@ -57,10 +57,22 @@ const Pagination = (props) => {
   };
 
   const jumpChangePage = (isNext) => {
-    const changedPageGroupNum = isNext ? pageGroupNum + 1 : pageGroupNum - 1;
-    if (changedPageGroupNum >= 0 && changedPageGroupNum < pageSections) {
-      setPageGroupNum(changedPageGroupNum);
-      setPage(paginationBtns[changedPageGroupNum][0]);
+    if(isNext) {
+      let tempLastPage = paginationBtns[pageGroupNum][paginationBtns[pageGroupNum].length - 1];
+      if(page === tempLastPage && page !==lastPage){
+        tempLastPage = paginationBtns[pageGroupNum + 1][paginationBtns[pageGroupNum + 1].length - 1];
+        setPage(tempLastPage)
+      }else{
+        setPage(tempLastPage)
+      }
+    } else {
+      let tempFirstPage = paginationBtns[pageGroupNum][0];
+      if(page === tempFirstPage && page !==1){
+        tempFirstPage = paginationBtns[pageGroupNum - 1][0];
+        setPage(tempFirstPage)
+      }else{
+        setPage(tempFirstPage)
+      }
     }
   };
 
@@ -72,7 +84,7 @@ const Pagination = (props) => {
     <div className="pagination-container">
       <div
         onClick={() => jumpChangePage(false)}
-        disabled={pageGroupNum === 0}
+        disabled={page === 1}
         className="arrow-btns"
         title="Skip-Prev"
       >
@@ -107,7 +119,7 @@ const Pagination = (props) => {
       </div>
       <div
         onClick={() => jumpChangePage(true)}
-        disabled={pageGroupNum === pageSections - 1}
+        disabled={page === lastPage}
         className="arrow-btns"
         title="Skip-Next"
       >

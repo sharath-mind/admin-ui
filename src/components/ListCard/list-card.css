@@ -66,8 +66,18 @@
   margin-top: 3px;
 }
 
-.action-btns>div {
+.action-btns>div[title="Delete"] {
   fill: #da1256;
+  cursor: pointer;
+}
+
+.action-btns>div[title="Edit"] {
+  fill: #105a95;
+  cursor: pointer;
+}
+
+.action-btns>div[title="Save"] {
+  fill: #009688;
   cursor: pointer;
 }
 

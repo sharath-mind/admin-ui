@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState, useContext, useRef } from "react";
 import "./list-card.css";
 import { ROLES } from "../../constants";
 import { DeleteIcon, SaveIcon, EditIcon } from "../../Assets/icons";
@@ -13,12 +13,33 @@ const ListCard = (props) => {
   const [isEdit, setIsEdit] = useState(false);
   const [nameError, setNameError] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [showNameLable, setShowNameLable] = useState(false);
+  const [showEmailLable, setShowEmailLable] = useState(false);
 
   const [name, setName] = useState(info?.name);
   const [email, setEmail] = useState(info?.email);
   const [role, setRole] = useState(info?.role);
 
   const { showAlert } = useContext(AlertContext);
+
+  const nameRef = useRef();
+  const emailRef = useRef();
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      if (emailRef.current.innerText.length * 8 > emailRef.current.clientWidth)
+        setShowEmailLable(!isEdit && true);
+      else setShowEmailLable(false);
+      if (nameRef.current.innerText.length * 8 > nameRef.current.clientWidth)
+        setShowNameLable(!isEdit && true);
+      else setShowNameLable(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (selectedIds) {
@@ -93,7 +114,7 @@ const ListCard = (props) => {
             disabled={isEdit}
           />
         </div>
-        <div className="name" data-info={!isEdit && name}>
+        <div className="name" data-info={showNameLable && name} ref={nameRef}>
           <div className="mobile-view"> Name: </div>
           {isEdit ? (
             <>
@@ -103,7 +124,7 @@ const ListCard = (props) => {
                 placeholder="Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                error={nameError ? "true" : false}
+                error={nameError ? "true" : undefined}
                 id="user-name"
               />
               {nameError && (
@@ -114,7 +135,11 @@ const ListCard = (props) => {
             info?.name
           )}
         </div>
-        <div className="email" data-info={!isEdit && email}>
+        <div
+          className="email"
+          data-info={showEmailLable && email}
+          ref={emailRef}
+        >
           <div className="mobile-view"> Email:</div>
           {isEdit ? (
             <>
@@ -125,7 +150,7 @@ const ListCard = (props) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 id="user-email"
-                error={emailError ? "true" : false}
+                error={emailError ? "true" : undefined}
               />
               {emailError && (
                 <ErrorLable message={emailError} forName="user-email" />

@@ -22,7 +22,9 @@ const getMatchingInfo = (info, key) => {
   const role = info?.role?.toLowerCase();
   const name = info?.name?.toLowerCase();
 
-  if (name?.includes(key) || role.includes(key) || email.includes(key))
+  const lowerCaseKey = key?.toLowerCase()
+
+  if (name?.includes(lowerCaseKey) || role.includes(lowerCaseKey) || email.includes(lowerCaseKey))
     isMatched = true;
   return isMatched;
 };

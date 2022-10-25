@@ -25,7 +25,7 @@ export const generateArray = (lenght, start, end) =>
 export const updateArray = (array = [], id, payload) => {
   const tempArray = [...array];
   const arrayId = tempArray.findIndex((info) => info.id === id);
-  if (arrayId !== -1) tempArray[arrayId] = payload;
+  if (arrayId !== -1) tempArray[arrayId] = {...payload, id};
   return [...tempArray];
 };
 

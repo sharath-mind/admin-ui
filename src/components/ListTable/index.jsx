@@ -41,9 +41,9 @@ const ListTable = (props) => {
       <div className="table-container">
         <Header {...props} />
         {data
-          ?.sort((a, b) => a.id - b.id)
+          ?.sort((a, b) => a?.id - b?.id)
           ?.map((info) => (
-            <ListCard key={info.id} info={info} {...props} />
+            <ListCard key={info?.id + info?.email} info={info} {...props} />
           ))}
       </div>
     </div>
